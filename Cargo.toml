@@ -1,0 +1,8 @@
+[package]
+name = "mandelbrot-set"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sdl3 = "0.14.14"
+num = "0.4.3"
