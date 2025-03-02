@@ -1,8 +1,7 @@
 use std::time::UNIX_EPOCH;
 
-use sdl3::{event::Event, keyboard::Keycode, pixels::Color};
-
 use num::{complex::Complex64 as Complex, pow::Pow};
+use sdl3::{event::Event, keyboard::Keycode, pixels::Color};
 
 const BASE_COLOR: Color = Color {
     r: 255,
@@ -13,6 +12,8 @@ const BASE_COLOR: Color = Color {
 
 const Z_BOUND: f64 = 2.;
 const MAX_ITERATIONS: u64 = 50;
+
+const ZOOM_FACTOR: f64 = 0.95;
 
 const WIDTH: u32 = 900;
 const HEIGHT: u32 = 600;
@@ -142,11 +143,11 @@ fn main() {
                 Event::KeyDown {
                     keycode: Some(Keycode::Equals),
                     ..
-                } => unsafe { IN_FRAME_PAD_X *= 0.95 },
+                } => unsafe { IN_FRAME_PAD_X *= ZOOM_FACTOR },
                 Event::KeyDown {
                     keycode: Some(Keycode::Minus),
                     ..
-                } => unsafe { IN_FRAME_PAD_X /= 0.95 },
+                } => unsafe { IN_FRAME_PAD_X /= ZOOM_FACTOR },
                 _ => {}
             }
         }
