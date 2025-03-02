@@ -11,6 +11,7 @@ const BASE_COLOR: Color = Color {
 };
 
 const Z_BOUND: f64 = 2.;
+// TODO: scale with the zoom level (`IN_FRAME_PAD_X`)
 const MAX_ITERATIONS: u64 = 50;
 
 const ZOOM_FACTOR: f64 = 0.95;
@@ -24,6 +25,7 @@ static mut IN_FRAME_PAD_X: f64 = 2.;
 
 static mut IN_FRAME_CENTER_Y: f64 = 0.;
 
+// TODO: create a single vector with those guys, so you can configure how many threads you want to spawn, instead of just 4 hardcoded
 static mut TEMP1: Vec<Vec<Color>> = vec![];
 static mut TEMP2: Vec<Vec<Color>> = vec![];
 static mut TEMP3: Vec<Vec<Color>> = vec![];
@@ -174,7 +176,7 @@ fn main() {
                             (y as f64 / HEIGHT as f64 - 0.5) / ar * IN_FRAME_PAD_X * 2.
                                 + IN_FRAME_CENTER_Y,
                             p,
-                            MAX_ITERATIONS as u64,
+                            MAX_ITERATIONS,
                         );
                     }
                 }
@@ -199,7 +201,7 @@ fn main() {
                             (y as f64 / HEIGHT as f64 - 0.5) / ar * IN_FRAME_PAD_X * 2.
                                 + IN_FRAME_CENTER_Y,
                             p,
-                            MAX_ITERATIONS as u64,
+                            MAX_ITERATIONS,
                         );
                     }
                 }
@@ -225,7 +227,7 @@ fn main() {
                             (y as f64 / HEIGHT as f64 - 0.5) / ar * IN_FRAME_PAD_X * 2.
                                 + IN_FRAME_CENTER_Y,
                             p,
-                            MAX_ITERATIONS as u64,
+                            MAX_ITERATIONS,
                         );
                     }
                 }
@@ -252,7 +254,7 @@ fn main() {
                                 (y as f64 / HEIGHT as f64 - 0.5) / ar * IN_FRAME_PAD_X * 2.
                                     + IN_FRAME_CENTER_Y,
                                 p,
-                                MAX_ITERATIONS as u64,
+                                MAX_ITERATIONS,
                             );
                     }
                 }
