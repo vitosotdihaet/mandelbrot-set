@@ -1,4 +1,4 @@
-# Mandelbrot set in rust powered by SDL
+# Mandelbrot set in rust powered by SDL3
 
 # Running
 ```bash
